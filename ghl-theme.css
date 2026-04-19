@@ -1,135 +1,206 @@
-/* ================================================
-   SiteWebster — GHL Agency Dashboard Theme
-   Dark mode · Generated from sitewebster.com
-   ================================================ */
+/** ================================================
+ *  SiteWebster — GHL Agency Dashboard Dark Theme
+ *  Built using real GHL v2 CSS variables & selectors
+ *  Based on sitewebster.com color palette
+ *  ================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
-/* GLOBAL */
-body, .page-wrapper, .left-sidebar, .topbar, .card, .form-control, .btn {
-  font-family: 'Inter', -apple-system, sans-serif !important;
+/* ================================================
+   CORE CSS VARIABLES — GHL's actual variable names
+   Change these to rebrand everything at once
+   ================================================ */
+:root {
+  /* Sidebar */
+  --nav-menus-background-color:          #0D0D0D !important;
+  --nav-menu-text-color:                 #FFFFFF !important;
+  --nav-menu-icon-color:                 #888888 !important;
+  --nav-hover-background-color:          #1A1A1A !important;
+  --location-switcher-background-color:  #1A1A1A !important;
+  --sidebar-agency-back-button:          #222222 !important;
+
+  /* Cards */
+  --card-header-background-color:        #111111 !important;
+  --card-header-text-color:              #FFFFFF !important;
+
+  /* Buttons & focus */
+  --button-background-color:             #FFFFFF !important;
+  --button-text-color:                   #000000 !important;
+  --tw-ring-color:                       #FFFFFF !important;
+
+  /* Dashboard date/time picker */
+  --dashboard-time-and-date-color:       #FFFFFF !important;
+
+  /* Sidebar section dividers */
+  --sb-divider-background-color:         #00000000 !important;
 }
 
-/* HEADER */
-.topbar, .hl_header, header.navbar {
-  background-color: #111111 !important;
-  border-bottom: 1px solid #1f1f1f !important;
+/* ================================================
+   SIDEBAR — background
+   ================================================ */
+.v2-open #sidebar-v2 {
+  background: var(--nav-menus-background-color) !important;
 }
-.topbar .nav-link, .topbar .navbar-text, .hl_header a, .hl_header span {
-  color: #ffffff !important;
+#sidebar-v2 .default-bg-color,
+#sidebar-v2.default-bg-color {
+  background: var(--nav-menus-background-color) !important;
 }
-.topbar .nav-link:hover, .hl_header a:hover { opacity: 0.7; }
+#sidebar-v2 #sb_divider-1 {
+  background: var(--sb-divider-background-color) !important;
+}
+#sb_business-services,
+#sb_other-settings {
+  background: var(--sb-divider-background-color) !important;
+}
 
-/* SIDEBAR */
-.left-sidebar, .sidebar-nav, .hl_sidebar, nav.sidebar,
-.sidebar-v2-agency #sidebar-v2 .default-bg-color,
-.sidebar-v2-location #sidebar-v2 .default-bg-color {
-  background-color: #0d0d0d !important;
+/* ================================================
+   SIDEBAR — back button & location switcher
+   ================================================ */
+#sidebar-v2 #backButtonv2 {
+  background: var(--sidebar-agency-back-button) !important;
 }
-.left-sidebar .sidebar-nav ul li a, .hl_sidebar a, nav.sidebar a {
-  color: #888888 !important;
-  border-radius: 6px !important;
-  margin: 2px 8px !important;
-  transition: all 0.15s ease;
+#location-switcher-sidbar-v2 {
+  background: var(--location-switcher-background-color) !important;
 }
-.left-sidebar .sidebar-nav ul li a:hover, .hl_sidebar a:hover {
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
+
+/* ================================================
+   SIDEBAR — nav text
+   ================================================ */
+#sidebar-v2 .text-white,
+nav .text-white,
+nav span {
+  --tw-text-opacity: 1;
+  color: var(--nav-menu-text-color) !important;
 }
-.left-sidebar .sidebar-nav ul li.active > a,
-.hl_sidebar a.active, nav.sidebar a.router-link-active {
-  background-color: #ffffff !important;
+
+/* ================================================
+   SIDEBAR — nav icons (SVG strokes & fills)
+   ================================================ */
+#sb_agency-partners svg path,
+#sb_sites svg path,
+#sb_contacts svg path {
+  fill: var(--nav-menu-icon-color) !important;
+}
+nav svg path {
+  stroke: var(--nav-menu-icon-color) !important;
+}
+#sidebar-v2 i.text-white,
+nav i.text-white,
+nav span i {
+  color: var(--nav-menu-icon-color) !important;
+}
+
+/* ================================================
+   SIDEBAR — nav link spacing
+   ================================================ */
+nav a {
+  margin-top: 5px !important;
+}
+
+/* ================================================
+   SIDEBAR — hover & active states
+   ================================================ */
+nav a.active,
+nav a:hover {
+  background: var(--nav-hover-background-color) !important;
+}
+
+/* ================================================
+   SIDEBAR — quick actions button
+   ================================================ */
+#quickActions {
+  border: 1px solid var(--nav-menu-icon-color) !important;
+  border-radius: 50px !important;
+}
+
+/* ================================================
+   SIDEBAR — settings & back icons (Font Awesome)
+   ================================================ */
+#sb_agency-settings::before,
+#sb_settings::before,
+#sb_undefined::before {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  position: absolute !important;
+  left: 16px !important;
+  font-size: 17px !important;
+  color: var(--nav-menu-icon-color) !important;
+}
+#sb_agency-settings::before,
+#sb_settings::before {
+  content: "\f013" !important;
+}
+#sb_undefined::before {
+  content: "\f0e2" !important;
+}
+#sb_agency-settings,
+#sb_settings,
+#sb_undefined {
+  padding-left: 40px !important;
+}
+#sb_agency-settings > img,
+#sb_settings > img,
+#sb_undefined > img {
+  display: none !important;
+}
+
+/* ================================================
+   CARDS — header background & text
+   ================================================ */
+.card-header {
+  background: var(--card-header-background-color) !important;
+}
+.card-header h2,
+.card-header h3 {
+  color: var(--card-header-text-color) !important;
+}
+
+/* Prevent double-styling on specific dashboard buttons */
+#dashboard .hl_tasks-list button.dropdown-toggle,
+#dashboard .hl_dashboard--sales-funnel .btn.btn-primary {
+  background-color: #fff0 !important;
+}
+
+/* ================================================
+   BUTTONS — primary action buttons
+   ================================================ */
+.bg-apple-500 {
+  background: var(--button-background-color) !important;
+  color: var(--button-text-color) !important;
+}
+.focus\:outline-none:focus {
+  outline: 2px solid var(--button-background-color) !important;
+}
+
+/* ================================================
+   DASHBOARD — date/time picker
+   ================================================ */
+#dashboard .date-time-picker .field .field-input {
+  color: var(--dashboard-time-and-date-color) !important;
+}
+
+/* ================================================
+   GLOBAL FONT — Inter (matches SiteWebster)
+   ================================================ */
+body,
+#sidebar-v2,
+nav,
+.card,
+.card-header,
+input,
+button,
+select,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ================================================
+   LOGIN PAGE — match SiteWebster branding
+   ================================================ */
+.login__button {
+  background-color: #FFFFFF !important;
   color: #000000 !important;
-  font-weight: 500 !important;
 }
-.left-sidebar .sidebar-nav ul li a svg, .hl_sidebar a svg {
-  color: #555555 !important;
+.login__logo img {
+  max-height: 80px !important;
 }
-.sidebar-v2-agency #sidebar-v2 .hl_nav-header nav a:hover:not(.active),
-.sidebar-v2-location #sidebar-v2 .hl_nav-header nav a:hover {
-  background: #1a1a1a !important;
-}
-.sidebar-v2-agency #sidebar-v2 .hl_nav-header nav a.active,
-.sidebar-v2-location #sidebar-v2 .hl_nav-header nav a.active {
-  background: #ffffff !important;
-  color: #000000 !important;
-}
-
-/* CONTENT */
-.page-wrapper { background-color: #0a0a0a !important; }
-
-/* CARDS */
-.card {
-  background-color: #111111 !important;
-  border: 1px solid #1f1f1f !important;
-  border-radius: 10px !important;
-  box-shadow: none !important;
-}
-.card .card-header, .card-header {
-  background-color: #161616 !important;
-  border-bottom: 1px solid #1f1f1f !important;
-}
-.card .card-header h4, .card .card-header h5, .card .card-title {
-  color: #ffffff !important;
-}
-
-/* BUTTONS */
-.btn-primary, .btn-blue, .hl_quick-actions button {
-  background-color: #ffffff !important;
-  border-color: #ffffff !important;
-  color: #000000 !important;
-  border-radius: 6px !important;
-  font-weight: 500 !important;
-}
-.btn-primary:hover, .btn-blue:hover, .hl_quick-actions button:hover {
-  background-color: #e5e5e5 !important;
-  border-color: #e5e5e5 !important;
-}
-
-/* FORMS */
-.form-control, input[type=text], input[type=email],
-input[type=password], input[type=search], textarea, select.form-control {
-  border: 1px solid #333333 !important;
-  border-radius: 6px !important;
-  background-color: #161616 !important;
-  color: #ffffff !important;
-}
-.form-control:focus, input:focus, textarea:focus {
-  border-color: #ffffff !important;
-  box-shadow: 0 0 0 3px #ffffff22 !important;
-}
-
-/* TABLES */
-.table thead th {
-  background-color: #161616 !important;
-  color: #888888 !important;
-  font-weight: 500 !important;
-  font-size: 0.75rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  border-bottom: 1px solid #1f1f1f !important;
-}
-.table tbody td {
-  border-bottom: 1px solid #1f1f1f !important;
-  color: #cccccc !important;
-}
-.table tbody tr:hover { background-color: #1a1a1a !important; }
-
-/* BADGES */
-.badge-primary { background-color: #1a1a1a !important; color: #ffffff !important; }
-.badge-success  { background-color: #052e16 !important; color: #4ade80 !important; }
-.badge-warning  { background-color: #2d1b00 !important; color: #fbbf24 !important; }
-.badge-danger   { background-color: #2d0a0a !important; color: #f87171 !important; }
-.badge, .tag, .label { border-radius: 20px !important; padding: 3px 10px !important; font-size: 0.75rem !important; }
-
-/* LOADING */
-.spinner-border, .loading-spinner {
-  color: #ffffff !important;
-  border-color: #ffffff !important;
-  border-right-color: transparent !important;
-}
-#nprogress .bar { background-color: #ffffff !important; height: 3px !important; }
-
-/* LOGIN */
-.login__button { background-color: #ffffff !important; color: #000000 !important; }
-.login__logo img { max-height: 80px !important; }
