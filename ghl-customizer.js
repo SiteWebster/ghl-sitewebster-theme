@@ -1,44 +1,30 @@
-/* ================================================
-   SiteWebster — GHL Customizer JS
-   ================================================ */
-(function(){
-  const C = {
-    agencyName: "SiteWebster",
-    logoUrl: "https://framerusercontent.com/images/HXoaHp5PKzod5mZV3M1UAo6Js.png",
-    dashboardTitle: "Welcome to SiteWebster",
-    themeMode: "dark"
-  };
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/svg-injector/1.1.3/svg-injector.min.js"
+  integrity="sha512-LpKoEmPyokcDYSjRJ/7WgybgdAYFsKtCrGC9m+VBwcefe1vHXyUnD9fTQb3nXVJda6ny1J84UR+iBtEYm3OQmQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 
-  function applyLogo(){
-    if(!C.logoUrl) return;
-    document.querySelectorAll('.agency-logo img,.sidebar-logo img,.hl_logo img,.login__logo img').forEach(el=>{
-      el.src = C.logoUrl;
+<script>
+  window.addEventListener("routeChangeEvent", function (e) {
+    if (e.detail.to.name === "company-settings-v2") return;
+
+    let navIconInterval = setInterval(() => {
+      const navSVG = document.querySelectorAll("#sidebar-v2 nav svg");
+      if (navSVG === true) return;
+
+      const nav = document.querySelectorAll("nav")[0];
+      if (!nav) return;
+
+      const navIcons = nav.querySelectorAll("nav img");
+      const iconsArray = Array.from(navIcons);
+
+      if (iconsArray.length !== 0 && navIcons) {
+        clearInterval(navIconInterval);
+        for (let icon of iconsArray) {
+          SVGInjector(icon);
+        }
+      }
     });
-  }
-
-  function applyTitle(){
-    if(!C.dashboardTitle) return;
-    document.querySelectorAll('.dashboard-title,.page-title h1').forEach(el=>{
-      el.textContent = C.dashboardTitle;
-    });
-  }
-
-  function applyDarkMode(){
-    if(C.themeMode==='dark') document.body.classList.add('dark-mode','theme-dark');
-    else document.body.classList.remove('dark-mode','theme-dark');
-  }
-
-  function run(){
-    applyLogo();
-    applyTitle();
-    applyDarkMode();
-    console.log('SiteWebster GHL theme loaded ✓');
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded', run);
-  } else { run(); }
-
-  new MutationObserver(()=>{ applyLogo(); applyTitle(); })
-    .observe(document.body,{childList:true,subtree:true});
-})();
+  });
+</script>
