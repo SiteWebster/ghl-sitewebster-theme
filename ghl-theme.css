@@ -1,206 +1,73 @@
-/** ================================================
- *  SiteWebster — GHL Agency Dashboard Dark Theme
- *  Built using real GHL v2 CSS variables & selectors
- *  Based on sitewebster.com color palette
- *  ================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
 /* ================================================
-   CORE CSS VARIABLES — GHL's actual variable names
-   Change these to rebrand everything at once
+   GHL Dashboard - Complete Custom Styling
+   Brand Color: #2563eb (adjust to your brand)
    ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-  /* Sidebar */
-  --nav-menus-background-color:          #0D0D0D !important;
-  --nav-menu-text-color:                 #FFFFFF !important;
-  --nav-menu-icon-color:                 #888888 !important;
-  --nav-hover-background-color:          #1A1A1A !important;
-  --location-switcher-background-color:  #1A1A1A !important;
-  --sidebar-agency-back-button:          #222222 !important;
-
-  /* Cards */
-  --card-header-background-color:        #111111 !important;
-  --card-header-text-color:              #FFFFFF !important;
-
-  /* Buttons & focus */
-  --button-background-color:             #FFFFFF !important;
-  --button-text-color:                   #000000 !important;
-  --tw-ring-color:                       #FFFFFF !important;
-
-  /* Dashboard date/time picker */
-  --dashboard-time-and-date-color:       #FFFFFF !important;
-
-  /* Sidebar section dividers */
-  --sb-divider-background-color:         #00000000 !important;
+  --brand: #2563eb;
+  --brand-dark: #1d4ed8;
+  --brand-light: #dbeafe;
+  --sidebar-bg: #0c1929;
+  --header-bg: #0f172a;
+  --content-bg: #f1f5f9;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
 }
 
-/* ================================================
-   SIDEBAR — background
-   ================================================ */
-.v2-open #sidebar-v2 {
-  background: var(--nav-menus-background-color) !important;
-}
-#sidebar-v2 .default-bg-color,
-#sidebar-v2.default-bg-color {
-  background: var(--nav-menus-background-color) !important;
-}
-#sidebar-v2 #sb_divider-1 {
-  background: var(--sb-divider-background-color) !important;
-}
-#sb_business-services,
-#sb_other-settings {
-  background: var(--sb-divider-background-color) !important;
+/* Font */
+body, .page-wrapper, .left-sidebar, .topbar {
+  font-family: 'Inter', sans-serif !important;
 }
 
-/* ================================================
-   SIDEBAR — back button & location switcher
-   ================================================ */
-#sidebar-v2 #backButtonv2 {
-  background: var(--sidebar-agency-back-button) !important;
-}
-#location-switcher-sidbar-v2 {
-  background: var(--location-switcher-background-color) !important;
+/* Sidebar */
+.left-sidebar, .sidebar-nav {
+  background-color: var(--sidebar-bg) !important;
 }
 
-/* ================================================
-   SIDEBAR — nav text
-   ================================================ */
-#sidebar-v2 .text-white,
-nav .text-white,
-nav span {
-  --tw-text-opacity: 1;
-  color: var(--nav-menu-text-color) !important;
+.left-sidebar .sidebar-nav ul li a {
+  color: #8ba3be !important;
+  border-radius: 6px !important;
+  margin: 2px 8px !important;
 }
 
-/* ================================================
-   SIDEBAR — nav icons (SVG strokes & fills)
-   ================================================ */
-#sb_agency-partners svg path,
-#sb_sites svg path,
-#sb_contacts svg path {
-  fill: var(--nav-menu-icon-color) !important;
-}
-nav svg path {
-  stroke: var(--nav-menu-icon-color) !important;
-}
-#sidebar-v2 i.text-white,
-nav i.text-white,
-nav span i {
-  color: var(--nav-menu-icon-color) !important;
+.left-sidebar .sidebar-nav ul li.active > a {
+  background-color: var(--brand) !important;
+  color: #fff !important;
 }
 
-/* ================================================
-   SIDEBAR — nav link spacing
-   ================================================ */
-nav a {
-  margin-top: 5px !important;
+/* Header */
+.topbar {
+  background-color: var(--header-bg) !important;
 }
 
-/* ================================================
-   SIDEBAR — hover & active states
-   ================================================ */
-nav a.active,
-nav a:hover {
-  background: var(--nav-hover-background-color) !important;
+/* Content Area */
+.page-wrapper {
+  background-color: var(--content-bg) !important;
 }
 
-/* ================================================
-   SIDEBAR — quick actions button
-   ================================================ */
-#quickActions {
-  border: 1px solid var(--nav-menu-icon-color) !important;
-  border-radius: 50px !important;
+/* Cards */
+.card {
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
 }
 
-/* ================================================
-   SIDEBAR — settings & back icons (Font Awesome)
-   ================================================ */
-#sb_agency-settings::before,
-#sb_settings::before,
-#sb_undefined::before {
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 900 !important;
-  position: absolute !important;
-  left: 16px !important;
-  font-size: 17px !important;
-  color: var(--nav-menu-icon-color) !important;
-}
-#sb_agency-settings::before,
-#sb_settings::before {
-  content: "\f013" !important;
-}
-#sb_undefined::before {
-  content: "\f0e2" !important;
-}
-#sb_agency-settings,
-#sb_settings,
-#sb_undefined {
-  padding-left: 40px !important;
-}
-#sb_agency-settings > img,
-#sb_settings > img,
-#sb_undefined > img {
-  display: none !important;
+/* Buttons */
+.btn-primary, .btn-blue {
+  background-color: var(--brand) !important;
+  border-color: var(--brand) !important;
 }
 
-/* ================================================
-   CARDS — header background & text
-   ================================================ */
-.card-header {
-  background: var(--card-header-background-color) !important;
-}
-.card-header h2,
-.card-header h3 {
-  color: var(--card-header-text-color) !important;
+.btn-primary:hover, .btn-blue:hover {
+  background-color: var(--brand-dark) !important;
 }
 
-/* Prevent double-styling on specific dashboard buttons */
-#dashboard .hl_tasks-list button.dropdown-toggle,
-#dashboard .hl_dashboard--sales-funnel .btn.btn-primary {
-  background-color: #fff0 !important;
-}
-
-/* ================================================
-   BUTTONS — primary action buttons
-   ================================================ */
-.bg-apple-500 {
-  background: var(--button-background-color) !important;
-  color: var(--button-text-color) !important;
-}
-.focus\:outline-none:focus {
-  outline: 2px solid var(--button-background-color) !important;
-}
-
-/* ================================================
-   DASHBOARD — date/time picker
-   ================================================ */
-#dashboard .date-time-picker .field .field-input {
-  color: var(--dashboard-time-and-date-color) !important;
-}
-
-/* ================================================
-   GLOBAL FONT — Inter (matches SiteWebster)
-   ================================================ */
-body,
-#sidebar-v2,
-nav,
-.card,
-.card-header,
-input,
-button,
-select,
-textarea {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-}
-
-/* ================================================
-   LOGIN PAGE — match SiteWebster branding
-   ================================================ */
-.login__button {
-  background-color: #FFFFFF !important;
-  color: #000000 !important;
-}
-.login__logo img {
-  max-height: 80px !important;
+/* Inputs */
+.form-control:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
 }
